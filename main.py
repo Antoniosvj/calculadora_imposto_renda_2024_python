@@ -1,7 +1,10 @@
 print('\n\n### Olá! Seja bem vindo a calculadora de imposto de renda. ###')
 print('-'*62)
 nome = input('\nDigite seu nome: ')
-salario_mensal = float(input('Digite seu salário mensal: R$'))
+salario_mensal = input('Digite seu salário mensal: R$')
+
+#corrigindo caso o usuário digite ','.
+salario_mensal = float(salario_mensal.replace(',', '.'))
 
 #calculo do imposto de renda em cima do salario recebido
 #obs.: este calculo está sendo realizado em cima dos valores previstos no ano de 2024
@@ -10,11 +13,11 @@ def aliquota_imposto():
 
     if salario_mensal <= 2259.20:
         return 0
-    elif salario_mensal >= 2259.20:
+    elif salario_mensal >= 2259.20 and salario_mensal < 2826.66:
         return 7.5
-    elif salario_mensal >= 2826.66:
+    elif salario_mensal >= 2826.66 and salario_mensal < 3751.06:
         return 15
-    elif salario_mensal >= 3751.06:
+    elif salario_mensal >= 3751.06 and salario_mensal < 4664.68:
         return 22.5
     else:
         return 27.5
