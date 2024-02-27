@@ -1,10 +1,18 @@
 print('\n\n### Olá! Seja bem vindo a calculadora de imposto de renda. ###')
 print('-'*62)
 nome = input('\nDigite seu nome: ')
-salario_mensal = input('Digite seu salário mensal: R$')
 
-#corrigindo caso o usuário digite ','.
-salario_mensal = float(salario_mensal.replace(',', '.'))
+while True:
+    #solicita o salario do usuário como uma string
+    salario_mensal = input('Digite seu salário mensal: R$')
+
+    #verifica se a entrada contem soment numeros e virgulas
+    if salario_mensal.replace(',', '', 1).replace('.','',1).isdigit():
+        #substitui ',' por '.'
+        salario_mensal = float(salario_mensal.replace(',', '.'))
+        break
+    else:
+        print('Entrada Invalida. Digite uma valor numérico')
 
 #calculo do imposto de renda em cima do salario recebido
 #obs.: este calculo está sendo realizado em cima dos valores previstos no ano de 2024
